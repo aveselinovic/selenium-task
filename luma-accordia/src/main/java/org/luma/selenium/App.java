@@ -1,4 +1,4 @@
-package org.example;
+package org.luma.selenium;
 
 /**
  * Hello world!
