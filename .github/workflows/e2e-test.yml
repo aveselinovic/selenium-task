@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set headless mode environment variable
+        run: echo "headless_mode=true" >> $GITHUB_ENV
+
       - name: Checkout code
         uses: actions/checkout@v2
 
