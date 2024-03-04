@@ -17,7 +17,6 @@ jobs:
       - name: Download and setup ChromeDriver
         run: |
           cd luma-accordia/
-          wget https://example.com/webdriver_setup.sh
           chmod +x webdriver_setup.sh
           ./webdriver_setup.sh
 
