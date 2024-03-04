@@ -4,7 +4,27 @@
 DRIVERS_DIR="drivers"
 
 # Platform for ChromeDriver download
-PLATFORM="mac-arm64"  # Adjust platform as needed
+# Detect platform for ChromeDriver download
+if [ -n "$RUNNER_OS" ]; then
+    if [ "$RUNNER_OS" == "Linux" ]; then
+        PLATFORM="linux64"
+    elif [ "$RUNNER_OS" == "macOS" ]; then
+        PLATFORM="mac-arm64"
+    else
+        echo "Unsupported platform: $RUNNER_OS"
+        exit 1
+    fi
+else
+    OS=$(uname)
+    if [ "$OS" == "Darwin" ]; then
+        PLATFORM="mac-arm64"
+    elif [ "$OS" == "Linux" ]; then
+        PLATFORM="linux64"
+    else
+        echo "Unsupported platform: $OS"
+        exit 1
+    fi
+fi
 
 # Function to clean up existing files in the drivers directory
 cleanup_existing_files() {
