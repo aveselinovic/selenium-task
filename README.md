@@ -12,7 +12,7 @@
 - Basic page objects
 - Basic tests (Signup with support of User model using JFaker for data randomization)
 - Parallel test exeuction via TestNG
-- GithubAction workflow running our tests in CI/CD
+- GithubAction workflow running our tests in CI/CD - https://github.com/aveselinovic/selenium-task/blob/main/.github/workflows/e2e-test.yml 
 - Webdriver download and setup automated SHELL script
 - DataProvider example for Signup test case (User model)
 - Allure Reporting with integrated screenshots on failed tests (uploaded in github as artifact as well)
