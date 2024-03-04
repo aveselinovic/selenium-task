@@ -11,6 +11,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install unzip
+        run: sudo apt-get install unzip
+
+      - name: Download and setup ChromeDriver
+        run: |
+          cd luma-accordia/
+          wget https://example.com/webdriver_setup.sh
+          chmod +x webdriver_setup.sh
+          ./webdriver_setup.sh
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
