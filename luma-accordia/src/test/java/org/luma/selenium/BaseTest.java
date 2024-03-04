@@ -20,21 +20,29 @@ public class BaseTest {
         // Set path to ChromeDriver executable
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver/chromedriver");
 
-        // Initialize ChromeDriver with options
-        driver = webDriverProvider.get();
-        if (driver == null) {
-            driver = new ChromeDriver(getChromeOptions());
-            webDriverProvider.set(driver);
+        try {
+            // Initialize ChromeDriver with options
+            driver = webDriverProvider.get();
+            if (driver == null) {
+                driver = new ChromeDriver(getChromeOptions());
+                webDriverProvider.set(driver);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred while setting up the WebDriver: " + e.getMessage());
         }
     }
 
     @AfterMethod
     public void tearDown() {
         // Quit WebDriver instance
-        if (driver != null) {
-            driver.quit();
-            webDriverProvider.get().quit(); // Quit WebDriver from thread-local storage
-            webDriverProvider.clear(); // Clear thread-local storage
+        try {
+            if (driver != null) {
+                driver.quit();
+                webDriverProvider.get().quit(); // Quit WebDriver from thread-local storage
+                webDriverProvider.clear(); // Clear thread-local storage
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred while tearing down the WebDriver: " + e.getMessage());
         }
     }
 

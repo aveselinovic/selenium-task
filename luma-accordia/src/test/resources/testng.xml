@@ -12,7 +12,7 @@
 
     <test name="AnotherTest">
         <classes>
-            <class name="org.luma.selenium.ExampleTest"/>
+            <class name="org.luma.selenium.SignUpTest"/>
         </classes>
     </test>
 </suite>
