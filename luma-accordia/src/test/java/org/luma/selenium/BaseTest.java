@@ -1,5 +1,6 @@
 package org.luma.selenium;
 
+import org.luma.util.WebDriverProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,6 +13,7 @@ import java.util.Properties;
 
 public class BaseTest {
     protected WebDriver driver;
+    private final WebDriverProvider webDriverProvider = new WebDriverProvider();
 
     @BeforeMethod
     public void setUp() {
@@ -19,7 +21,11 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver/chromedriver");
 
         // Initialize ChromeDriver with options
-        driver = new ChromeDriver(getChromeOptions());
+        driver = webDriverProvider.get();
+        if (driver == null) {
+            driver = new ChromeDriver(getChromeOptions());
+            webDriverProvider.set(driver);
+        }
     }
 
     @AfterMethod
@@ -27,6 +33,8 @@ public class BaseTest {
         // Quit WebDriver instance
         if (driver != null) {
             driver.quit();
+            webDriverProvider.get().quit(); // Quit WebDriver from thread-local storage
+            webDriverProvider.clear(); // Clear thread-local storage
         }
     }
 

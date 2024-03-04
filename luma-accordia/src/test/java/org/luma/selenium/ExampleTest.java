@@ -20,6 +20,6 @@ public class ExampleTest extends BaseTest {
         System.out.println("Page title: " + pageTitle);
 
         // Assert that the page title contains "Example"
-        Assert.assertTrue(pageTitle.contains("Example Domain"), "Page title doesn't contain 'Example'");
+        Assert.assertTrue(pageTitle.contains("Esxample Domain"), "Page title doesn't contain 'Example'");
     }
 }

@@ -1,10 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
     <test name="GoogleTest">
         <classes>
             <class name="org.luma.selenium.GoogleTest"/>
         </classes>
     </test>
+
     <test name="AnotherTest">
         <classes>
             <class name="org.luma.selenium.ExampleTest"/>

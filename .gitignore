@@ -20,3 +20,9 @@ target/
 
 # webdriver location
 drivers/
+
+#Allure
+.allure
+/*/allure-results/
+/*/allure-report
+
