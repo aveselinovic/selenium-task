@@ -5,6 +5,7 @@
 - Java JDK 17+
 - Maven 3.9.6
 - JQ command line tool - https://jqlang.github.io/jq/ (for webdriver_setup.sh script or you can manually setup it in desired folder /drivers) , this tool helps us to parse JSON response and build from dynamic url based on matched platform from official webdriver API
+- Allure CLI in order to open reports in localhost : https://allurereport.org/docs/gettingstarted-installation/ 
 
 
 ### Currently implemented:
