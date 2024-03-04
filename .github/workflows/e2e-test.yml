@@ -32,11 +32,15 @@ jobs:
       - name: Set up Chrome browser
         uses: nanasess/setup-chromedriver@v2
 
-      - name: Install Allure CLI
+
+      - name: Download Allure CLI
         run: |
-          sudo apt-add-repository ppa:qameta/allure
-          sudo apt-get update
-          sudo apt-get install allure
+          wget -O allure-2.27.0.tgz https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.27.0/allure-commandline-2.27.0.tgz
+          tar -zxvf allure-2.27.0.tgz
+
+      - name: Add Allure CLI to PATH
+        run: |
+          sudo ln -s $(pwd)/allure-2.15.0/bin/allure /usr/bin/allure
 
       - name: Run Maven test
         run: mvn -B clean test -f luma-accordia/pom.xml
