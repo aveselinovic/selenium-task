@@ -17,3 +17,6 @@ target/
 
 # Mac OS X hidden files
 .DS_Store
+
+# webdriver location
+drivers/
