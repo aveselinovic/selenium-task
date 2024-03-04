@@ -1,8 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="GoogleTestSuite">
+<suite name="TestSuite" parallel="tests" thread-count="2">
     <test name="GoogleTest">
         <classes>
             <class name="org.luma.selenium.GoogleTest"/>
+        </classes>
+    </test>
+    <test name="AnotherTest">
+        <classes>
+            <class name="org.luma.selenium.ExampleTest"/>
         </classes>
     </test>
 </suite>
