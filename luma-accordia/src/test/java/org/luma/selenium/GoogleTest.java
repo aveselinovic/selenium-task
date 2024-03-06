@@ -15,6 +15,6 @@ public class GoogleTest extends BaseTest {
         System.out.println("Page title: " + pageTitle);
 
         // Assert that the page title contains "Google"
-        Assert.assertTrue(pageTitle.contains("Google"), "Page title doesn't contain 'Google'");
+        Assert.assertTrue(pageTitle.contains("Random"), "Page title doesn't contain 'Google'");
     }
 }
